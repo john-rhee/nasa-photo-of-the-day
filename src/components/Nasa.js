@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import NasaCard from "./NasaCard";
+import { Container, Row, Col } from 'reactstrap';
 
 export default function NasaList() {
     const [data, setData] = useState([]);
@@ -18,12 +19,16 @@ useEffect(() => {
   }, []);
 
 return (
-    <div>
+  <Container>
+    
         <NasaCard 
         key={data.date}
         title={data.title}
         photo={data.url}
+        exp={data.explanation}
+        date={data.date}
         />
-    </div>
+  
+  </Container>
   );
 }
